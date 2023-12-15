@@ -96,7 +96,7 @@ kb_workflow = params.kb_workflow
 ch_salmon_index = params.salmon_index ? file(params.salmon_index) : []
 
 //star params
-ch_star_index = params.star_index ? Channel.fromPath(params.star_index).map{f -> [[id:f.baseName], f] } : []
+ch_star_index = params.star_index ? Channel.fromPath(params.star_index).map{f -> [[id:f.baseName], f] }.collect() : []
 star_feature = params.star_feature
 
 //cellranger params
